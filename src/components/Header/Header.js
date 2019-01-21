@@ -1,11 +1,8 @@
 import React from "react";
+import "./Header.css";
 
 const Header = () => {
-    return (
-        <nav>
-            <h1> Zaido's Memes </h1>
-        </nav>
-    )
-}
+  return <nav className="navbar navbar-light bg-dark"> Zaido's Memes</nav>;
+};
 
 export default Header;

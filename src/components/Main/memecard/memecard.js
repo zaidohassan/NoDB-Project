@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import Favorite from "../Favorite/Favorite";
-import Button from "../Button/addButton";
+import AddButton from "../Button/addButton";
 import EditField from "../EditField/EditField";
 import "./memecard.css";
 
@@ -11,7 +11,8 @@ class MemeCard extends Component {
     this.state = {
       data: [],
       favorites: [],
-      caption: ""
+      caption: "",
+      display: true
     };
 
     this.add = this.add.bind(this);
@@ -58,27 +59,36 @@ class MemeCard extends Component {
     });
   };
 
+  handleDisplay = () => {
+    this.setState({ display: !this.state.display });
+  };
+
   render() {
     const { data, favorites } = this.state;
     let displayData = data.map((memes, i) => {
       return (
         <div key={i}>
           <Favorite memes={memes} />
-          <Button
-            add={() => {
-              this.add(memes);
-            }}
-          />
+          <div className="Abutton">
+            <AddButton
+              add={() => {
+                this.add(memes);
+              }}
+            />
+          </div>
         </div>
       );
     });
     let favList = favorites.map((memes, i) => {
       return (
-        <div key={i}>
+        <div className="buttonLayout" key={i}>
           <Favorite memes={memes} key={i} />
-          <button onClick={() => this.handledelete(memes.id)}>
+          <button
+            className="btn btn-success btn-lg btn-block"
+            onClick={() => this.handledelete(memes.id)}
+          >
             {" "}
-            DELETE ME{" "}
+            DELETE MEME{" "}
           </button>
           <EditField
             edit={this.handleEdit}
@@ -96,9 +106,23 @@ class MemeCard extends Component {
           <h1> Meme's List </h1>
           <div className="memeList"> {displayData}</div>{" "}
         </div>
-        <div>
-          <h1> Zaido's Favorite</h1>
-          <div className="favMemes"> {favList} </div>
+        <div className="entireFavsList">
+          <button
+            className="btn btn-success btn-lg btn-block"
+            onClick={() => this.handleDisplay()}
+          >
+            {" "}
+            Zaido's Favorite{" "}
+          </button>
+          {this.state.display === true ? (
+            <div className="favMemes"> {favList} </div>
+          ) : (
+            <div className="hiddenMeme">
+              {" "}
+              <img src="https://bit.ly/2oewMAa" />
+              <p> You Cant Escape Me(mes)!</p>
+            </div>
+          )}
         </div>
       </div>
     );

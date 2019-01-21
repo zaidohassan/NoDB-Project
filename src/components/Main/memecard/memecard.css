@@ -1,37 +1,71 @@
 * {
   margin: 0;
-  padding: 0;
-}
-
-.display {
-  width: 50vw;
-}
-
-.display img {
-  width: 200px;
-}
-
-.display h3 {
-  height: 30px;
+  background: #e8e7e7;
 }
 
 .allMemes {
   display: flex;
-  margin-top: 40px;
+  margin-top: 5vh;
 }
 
 .displayMemes {
-  width: 40vw;
+  width: 50vw;
 }
-
-.memeList {
-  border: 4px solid black;
+.displayMemes > h1 {
+  font-family: cursive;
+  font-size: 30px;
+}
+.buttonLayout {
   display: flex;
   flex-direction: column;
+}
+.buttonLayout button {
+  text-align: center;
+  padding: 20px;
+  margin-right: 60px;
+  border: 1px solid black;
+  font-size: 20px;
+}
+.memeList {
+  display: flex;
+  flex-direction: column;
+  margin-left: 5vw;
+  width: 45vw;
+  margin-top: 40px;
 }
 .favMemes {
   display: flex;
   flex-direction: column;
-  width: 40vw;
+  width: 100%;
+  padding-right: 100px;
   align-items: flex-end;
+}
+
+.entireFavsList {
+  width: 100%;
+}
+
+.entireFavsList > button {
+  width: 150px;
+  margin-left: 300px;
+}
+
+.Abutton {
+  width: 400px;
+  padding-bottom: 100px;
+}
+.entireFavsList > button {
+  font-size: 20px;
+  width: 300px;
+  margin-bottom: 40px;
+  font-family: cursive;
+}
+.hiddenMeme > p {
+  font-size: 50px;
+  text-align: center;
+}
+
+.hiddenMeme > img {
+  float: right;
+  margin-right: 50px;
 }
