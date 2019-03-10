@@ -21,8 +21,8 @@ class MemeCard extends Component {
 
   componentDidMount() {
     axios.get("/api/memes").then(res => {
+      console.log(res.data);
       this.setState({ data: res.data });
-      console.log(res);
     });
   }
 
@@ -93,7 +93,7 @@ class MemeCard extends Component {
           <EditField
             edit={this.handleEdit}
             change={this.addCaption}
-            memes={memes}
+            memes={meme}
           />
         </div>
       );

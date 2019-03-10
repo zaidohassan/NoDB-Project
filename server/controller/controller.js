@@ -50,6 +50,5 @@ module.exports = {
       }
     });
     res.status(200).json(favoriteMemes);
-    // console.log("res", req.body.caption);
   }
 };
